@@ -14,10 +14,13 @@ search()
 # Download Data
 zipurl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 if (!file.exists("Dataset.zip")) {
-  download.file(zipurl, destfile = "Dataset.zip", method = 'curl')
+  download.file(zipurl, destfile = "Dataset.zip", method = 'auto')
   # Extract data archive into data directory
   unzip(zipfile = "Dataset.zip")
 }
+
+# Read column names from file
+powerColumns <- fread("household_power_consumption.txt", nrows = 0)
 
 if (Sys.info()[1] == "Windows") {
   cmd1 <- paste('findstr /R /c:"^1/2/2007"')

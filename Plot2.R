@@ -14,7 +14,7 @@ search()
 # Download Data
 zipurl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 if (!file.exists("Dataset.zip")) {
-  download.file(zipurl, destfile = "Dataset.zip", method = 'curl')
+  download.file(zipurl, destfile = "Dataset.zip", method = 'auto')
   # Extract data archive into data directory
   unzip(zipfile = "Dataset.zip")
 }
